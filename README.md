@@ -1,4 +1,4 @@
-puppet-td-agent
+puppet-module-tdagent
 ===============
 
 Manage td-agent and gem packages with fluent-gem by puppet.
