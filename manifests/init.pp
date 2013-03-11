@@ -5,6 +5,7 @@ class td-agent {
 
   service { 'td-agent':
     ensure     => 'running',
+    enable     => true,
     hasrestart => true,
     restart    => '/etc/init.d/td-agent reload',
     require    => Package['td-agent'],
