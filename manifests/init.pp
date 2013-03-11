@@ -3,6 +3,13 @@ class td-agent {
     ensure  => 'installed',
   }
 
+  service { 'td-agent':
+    ensure     => 'running',
+    hasrestart => true,
+    restart    => '/etc/init.d/td-agent reload',
+    require    => Package['td-agent'],
+  }
+
   file { '/etc/td-agent/conf.d':
     ensure    => 'directory',
     owner     => 'root',
