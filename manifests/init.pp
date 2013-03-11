@@ -19,6 +19,7 @@ class td-agent {
     recursive => false,
     require   => Package['td-agent'],
   }
+
   file { '/etc/td-agent/td-agent.conf':
     ensure  => 'file',
     owner   => 'root',
