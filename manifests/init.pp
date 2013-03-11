@@ -3,11 +3,12 @@ class td-agent {
     ensure  => 'installed',
   }
 
-  file { [ '/etc/td-agent', '/etc/td-agent/conf.d', '/etc/td-agent/plugin' ]:
+  file { '/etc/td-agent/conf.d':
     ensure  => 'directory',
     owner   => 'root',
     group   => 'root',
     mode    => 0755,
+    require => Package['td-agent'],
   }
   file { '/etc/td-agent/td-agent.conf':
     ensure  => 'file',
@@ -15,5 +16,6 @@ class td-agent {
     group   => 'root',
     mode    => 0644,
     source  => 'puppet:///modules/td-agent/td-agent.conf',
+    require => Package['td-agent'],
   }
 }
