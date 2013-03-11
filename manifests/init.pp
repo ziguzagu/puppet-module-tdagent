@@ -4,11 +4,12 @@ class td-agent {
   }
 
   file { '/etc/td-agent/conf.d':
-    ensure  => 'directory',
-    owner   => 'root',
-    group   => 'root',
-    mode    => 0755,
-    require => Package['td-agent'],
+    ensure    => 'directory',
+    owner     => 'root',
+    group     => 'root',
+    mode      => 0755,
+    recursive => false,
+    require   => Package['td-agent'],
   }
   file { '/etc/td-agent/td-agent.conf':
     ensure  => 'file',
