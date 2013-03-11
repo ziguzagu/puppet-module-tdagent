@@ -25,5 +25,6 @@ class td-agent {
     mode    => 0644,
     source  => 'puppet:///modules/td-agent/td-agent.conf',
     require => Package['td-agent'],
+    notify  => Service['td-agent'],
   }
 }
