@@ -1,10 +1,3 @@
-class td-agent::install {
-  case $operatingsystem {
-    /^(CentOS|RedHat)$/: { include td-agent::install::yum }
-    default:             { notice('Not supported OS. Please install td-agent by hand.') }
-  }
-}
-
 class td-agent::install::yum {
   yumrepo { 'treasuredata':
     baseurl  => 'http://packages.treasure-data.com/redhat/$architecture',
@@ -16,5 +9,12 @@ class td-agent::install::yum {
   package { 'td-agent':
     ensure  => 'installed',
     require => Yumrepo['treasuredata'],
+  }
+}
+
+class td-agent::install {
+  case $operatingsystem {
+    /^(CentOS|RedHat)$/: { include td-agent::install::yum }
+    default:             { notice('Not supported OS. Please install td-agent by hand.') }
   }
 }
