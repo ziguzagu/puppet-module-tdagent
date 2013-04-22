@@ -1,9 +1,9 @@
-class td-agent::config {
+class tdagent::config {
   file { '/etc/td-agent/conf.d':
     ensure  => 'directory',
     owner   => 'root',
     group   => 'root',
-    mode    => 0755,
+    mode    => '0755',
     recurse => false,
     require => Class['td-agent::install'],
   }
@@ -12,7 +12,7 @@ class td-agent::config {
     ensure  => 'file',
     owner   => 'root',
     group   => 'root',
-    mode    => 0644,
+    mode    => '0644',
     source  => 'puppet:///modules/td-agent/td-agent.conf',
     require => Class['td-agent::install'],
     notify  => Class['td-agent::service'],
