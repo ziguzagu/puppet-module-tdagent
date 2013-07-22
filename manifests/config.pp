@@ -1,4 +1,4 @@
-class tdagent::config {
+class td-agent::config {
   file { '/etc/td-agent/conf.d':
     ensure  => 'directory',
     owner   => 'root',
