@@ -1,6 +1,6 @@
 class td-agent::install::yum {
   yumrepo { 'treasuredata':
-    baseurl  => 'http://packages.treasure-data.com/redhat/$architecture',
+    baseurl  => 'http://packages.treasure-data.com/redhat/$basearch/',
     descr    => 'TreasureData',
     enabled  => 1,
     gpgcheck => 0
