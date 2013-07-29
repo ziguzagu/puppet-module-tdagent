@@ -12,6 +12,6 @@ include td-agent
 package { [ 'fluent-plugin-datacounter', 'fluent-plugin-growthforecast' ]:
   ensure   => 'installed',
   provider => 'fluentgem',
-  require  => Pacakge['td-agent'],
+  require  => Package['td-agent'],
 }
 ```
