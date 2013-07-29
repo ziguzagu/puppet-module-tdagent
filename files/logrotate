@@ -1,0 +1,8 @@
+/var/log/td-agent/*.log {
+    missingok
+    notifempty
+    compress
+    daily 14
+    copytruncate
+    dateext
+}
