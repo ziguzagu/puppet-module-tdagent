@@ -1,13 +1,12 @@
 class td-agent::install {
-  yumrepo { 'treasuredata':
-    baseurl  => 'http://packages.treasure-data.com/redhat/$basearch/',
-    descr    => 'TreasureData',
-    enabled  => 1,
-    gpgcheck => 0
+  apt::source { 'treasuredata':
+    location => 'http://packages.treasure-data.com/precise/',
+    release  => 'precise',
+    repos    => 'contrib',
   }
 
   package { 'td-agent':
     ensure  => 'installed',
-    require => Yumrepo['treasuredata'],
+    require => Apt::Source['treasuredata'],
   }
 }
