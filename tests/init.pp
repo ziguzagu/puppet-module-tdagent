@@ -8,10 +8,10 @@
 #
 # Learn more about module testing here: http://docs.puppetlabs.com/guides/tests_smoke.html
 #
-include td-agent
+include td_agent
 
 package { [ 'fluent-plugin-datacounter', 'fluent-plugin-growthforecast' ]:
   ensure   => 'installed',
   provider => 'fluentgem',
-  require  => Package['td-agent'],
+  require  => Package['td_agent'],
 }
