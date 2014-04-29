@@ -5,8 +5,12 @@ class td_agent {
   $plugin_path  = '/etc/td-agent/plugin'
   $tmp_path     = '/var/tmp/td-agent'
   $log_path     = '/var/log/td-agent'
+  $gpgcheck     = '1'
 
-  include td_agent::install
+  class { 'td_agent::install':
+    gpgcheck => $gpgcheck,
+  }
+
   include td_agent::config
   include td_agent::service
   include td_agent::logrotate
