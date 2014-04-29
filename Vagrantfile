@@ -110,4 +110,11 @@ Vagrant.configure("2") do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+
+  config.vm.provider "virtualbox" do |v|
+    # Improve network
+    # see also https://github.com/mitchellh/vagrant/issues/1807
+    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+  end
 end
