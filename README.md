@@ -1,10 +1,8 @@
-puppet-module-tdagent
-===============
+# puppet-module-tdagent
 
 Manage td-agent and gem packages with fluent-gem by puppet.
 
-Usage
-=====
+## Usage
 
 ```puppet
 include td_agent
@@ -16,3 +14,7 @@ package { [ 'fluent-plugin-datacounter', 'fluent-plugin-growthforecast' ]:
   require  => Package['td_agent'],
 }
 ```
+
+## Notice
+
+This module is supported RHEL/CentOS, not supported Debian/Ubuntu for now.
