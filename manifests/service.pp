@@ -3,7 +3,7 @@ class td_agent::service {
     ensure     => 'running',
     enable     => true,
     hasrestart => true,
-    restart    => '/etc/init.d/td-agent reload',
+    restart    => 'service td-agent reload',
     require    => Class['td_agent::install', 'td_agent::config'],
   }
 }
